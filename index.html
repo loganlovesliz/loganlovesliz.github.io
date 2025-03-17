@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowkey Miss You</title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="page1" class="page">
+        <h1>Lowkey miss you</h1>
+        <img src="flowers.jpg" alt="Flowers">
+        <div class="buttons">
+            <button onclick="goToPage(2)">Next Page</button>
+        </div>
+    </div>
+
+    <div id="page2" class="page" style="display:none;">
+        <h1>I love you lots</h1>
+        <img src="heart.jpg" alt="Heart">
+        <div class="buttons">
+            <button onclick="goToPage(1)">Back to Home</button>
+            <button onclick="goToPage(3)">Next Page</button>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(pageNumber) {
+            // Hide both pages
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'none';
+
+            // Show the selected page
+            if (pageNumber === 1) {
+                document.getElementById('page1').style.display = 'block';
+            } else if (pageNumber === 2) {
+                document.getElementById('page2').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
 
