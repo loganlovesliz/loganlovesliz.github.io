@@ -3,152 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For my love</title>
+    <title>A Note to Our Future Self</title>
     <style>
         body {
+            font-family: 'Caveat', cursive;
+            background-color: #f1f1f1;
+            color: #333;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #FF69B4;
-            font-family: Arial, sans-serif;
-            color: white;
+            height: 100vh;
+        }
+        .container {
+            background: url('https://www.transparenttextures.com/patterns/paper-1.png');
+            background-color: #f9f7f1;
+            width: 80%;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            padding: 50px;
+            overflow: hidden;
         }
-        img {
-            width: 300px;
-            height: auto;
-            margin: 20px;
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Caveat', cursive;
+            color: #6c4f3d;
         }
-        .buttons {
+        .note-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #5c4033;
+            margin-bottom: 30px;
+        }
+        .note-image {
+            max-width: 100%;
+            border-radius: 8px;
             margin-top: 20px;
         }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #888;
         }
     </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="page1" class="page">
-        <h1>for my love (you, ofc)</h1>
-        <img src="candid.jpeg" alt="Flowers">
-        <div class="buttons">
-            <button onclick="goToPage(2)">--></button>
-        </div>
+    <div class="container">
+        <h1>A Note to Our Future Self</h1>
+        <p class="note-text">
+            Here we are, looking ahead with full hearts and unwavering certainty. As we reflect on this moment, we’ll smile knowing we made it — together. We’ll remember the late-night talks, the laughter, and the love that only grew stronger with time. Every challenge we faced only brought us closer, and today, our bond is unbreakable. We’ll stand side by side, even stronger, even more in love, just as we always knew we would. The future is ours, and nothing will change the way we love each other. Here's to us, forever and always.
+        </p>
+
+        <img class="note-image" src="https://via.placeholder.com/800x400.png?text=Love+Story" alt="A beautiful love image">
+        <div class="footer">Designed with love and nostalgia</div>
     </div>
-
-    <div id="page2" class="page" style="display:none;">
-        <h1>i'm so proud of you for making it through today!</h1>
-        <img src="confetti.gif">
-        <div class="buttons">
-            <button onclick="goToPage(1)"><--</button>
-            <button onclick="goToPage(3)">--></button>
-        </div>
-    </div>
-
-    <div id="page3" class="page" style="display:none;">
-        <h1>but i lowkey miss you (plz come home)</h1>
-        <img src="sadboi.jpg">
-        <div class="buttons">
-            <button onclick="goToPage(2)"><--</button>
-            <button onclick="goToPage(4)">--></button>
-        </div>
-    </div>
-
-    <div id="page4" class="page" style="display:none;">
-        <h1>i love you lots <3</h1>
-        <img src="wearecute2.jpeg">
-        <div class="buttons">
-            <button onclick="goToPage(3)"><--</button>
-            <button onclick="goToPage(5)">--></button>
-        </div>
-    </div>
-
-    <div id="page5" class="page" style="display:none;">
-        <h1>we're so cute hehe</h1>
-        <img src="wearecute.jpeg">
-        <div class="buttons">
-            <button onclick="goToPage(4)"><--</button>
-            <button onclick="goToPage(6)">--></button>
-        </div>
-    </div>
-
-    <div id="page6" class="page" style="display:none;">
-        <h1>btw, you're the prettiest girl in the world</h1>
-        <img src="prettyliz.jpeg">
-        <div class="buttons">
-            <button onclick="goToPage(5)"><--</button>
-            <button onclick="goToPage(7)">--></button>
-        </div>
-    </div>
-
-    <div id="page7" class="page" style="display:none;">
-        <h1>even prettier than this...</h1>
-        <img src="sunflowersweb.jpg">
-        <div class="buttons">
-            <button onclick="goToPage(6)"><--</button>
-            <button onclick="goToPage(8)">--></button>
-        </div>
-    </div>
-
-    <div id="page8" class="page" style="display:none;">
-        <h1>...and this</h1>
-        <img src="cherryblossom.jpg">
-        <div class="buttons">
-            <button onclick="goToPage(7)"><--</button>
-            <button onclick="goToPage(9)">--></button>
-        </div>
-    </div>
-
-    <div id="page9" class="page" style="display:none;">
-        <h1>and such a good mom to this good boy</h1>
-        <img src="goodmom.jpeg">
-        <div class="buttons">
-            <button onclick="goToPage(8)"><--</button>
-            <button onclick="goToPage(10)">--></button>
-        </div>
-    </div>
-
-    <div id="page10" class="page" style="display:none;">
-        <h1>i'm soooo excited for more adventures with my favorite person ever (you)</h1>
-        <img src="wearecute3.jpeg">
-        <div class="buttons">
-            <button onclick="goToPage(9)"><--</button>
-            <button onclick="goToPage(11)">--></button>
-        </div>
-    </div>
-
-    <div id="page11" class="page" style="display:none;">
-        <h1>cant wait to see you!!!!</h1>
-        <body>
-            <pre>
-M   M  U   U  CCCC  H   H   OOO  
-MM MM  U   U  C     H   H  O   O 
-M M M  U   U  C     HHHHH  O   O 
-M   M  U   U  C     H   H  O   O 
-M   M   UUU   CCCC  H   H   OOO  
-            </pre>
-        </body>
-        <div class="buttons">
-            <button onclick="goToPage(10)"><--</button>
-        </div>
-    </div>
-
-    <script>
-        function goToPage(pageNumber) {
-            // Hide all pages first
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.style.display = 'none';
-            });
-
-            // Show the selected page
-            document.getElementById('page' + pageNumber).style.display = 'block';
-        }
-    </script>
 </body>
 </html>
-
