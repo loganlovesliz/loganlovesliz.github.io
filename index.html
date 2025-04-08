@@ -40,11 +40,10 @@
             margin-bottom: 30px;
         }
         .note-image {
-             width: 100%;  /* Makes the image fit the width of the container */
-            max-width: 100%; /* Ensures the image doesn't stretch beyond container */
-            max-height: 300px; /* Set a max height for the image */
-            height: auto;
-            object-fit: cover; /* Ensures the image covers the area of the container without stretching */
+            width: auto;  /* Image will scale based on its natural size */
+            max-width: 100%;  /* Ensures image does not exceed the container width */
+            max-height: 200px; /* Set a max height for the image */
+            height: auto; /* Maintains aspect ratio */
             border-radius: 8px;
             margin-bottom: 20px;
         }
