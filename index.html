@@ -40,8 +40,13 @@
             margin-bottom: 30px;
         }
         .note-image {
-            max-width: 100%;
-           
+             width: 100%;  /* Makes the image fit the width of the container */
+            max-width: 100%; /* Ensures the image doesn't stretch beyond container */
+            max-height: 300px; /* Set a max height for the image */
+            height: auto;
+            object-fit: cover; /* Ensures the image covers the area of the container without stretching */
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
         .footer {
             margin-top: 30px;
