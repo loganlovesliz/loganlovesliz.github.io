@@ -56,7 +56,6 @@
             position: relative;
             width: 100%;
             max-width: 100%;
-            max-height: 200px;
             overflow: hidden;
             margin-bottom: 20px;
         }
@@ -65,7 +64,7 @@
             transition: transform 0.5s ease-in-out;
         }
         .carousel-image {
-            width: 33.33%;
+            width: 33.33%;  /* 3 images per slide */
             height: auto;
             max-height: 200px;
             object-fit: cover;
@@ -115,13 +114,13 @@
     </div>
 
     <script>
-        let currentIndex = 0;
+         let currentIndex = 0;
         const slides = document.querySelectorAll('.carousel-image');
-        const totalSlides = slides.length;
+        const totalSlides = slides.length / 3;  // Since we are showing 3 images per page
 
         function moveSlide(step) {
             currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-            const newTransformValue = -currentIndex * 100;
+            const newTransformValue = -currentIndex * 100; // Move by 100% of the width (1 page)
             document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue}%)`;
         }
 
