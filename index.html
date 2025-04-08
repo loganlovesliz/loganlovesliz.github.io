@@ -37,13 +37,13 @@
             font-size: 1.2em;
             line-height: 1.8;
             color: #5c4033;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         .note-image {
-            width: auto;  /* Image will scale based on its natural size */
-            max-width: 100%;  /* Ensures image does not exceed the container width */
-            max-height: 200px; /* Set a max height for the image */
-            height: auto; /* Maintains aspect ratio */
+            width: auto;
+            max-width: 100%;
+            max-height: 200px;
+            height: auto;
             border-radius: 8px;
             margin-bottom: 20px;
         }
@@ -64,7 +64,7 @@
             transition: transform 0.5s ease-in-out;
         }
         .carousel-image {
-            width: 33.33%;  /* 3 images per slide */
+            width: 33.33%;
             height: auto;
             max-height: 200px;
             object-fit: cover;
@@ -87,6 +87,16 @@
         .next {
             right: 10px;
         }
+        .translate-button {
+            font-size: 1em;
+            padding: 10px 20px;
+            background-color: #6c4f3d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
@@ -94,24 +104,26 @@
 <body>
     <div class="container">
         <h1>A Note to Our Future Self</h1>
-        <p class="note-text">
+        <p class="note-text" id="note-text">
             Here we are, looking ahead with full hearts and unwavering certainty. As we reflect on this moment, we’ll smile knowing we made it — together. We’ll remember the late-night talks, the laughter, and the love that only grew stronger with time. Every challenge we faced only brought us closer, and today, our bond is unbreakable. We’ll stand side by side, even stronger, even more in love, just as we always knew we would. The future is ours, and nothing will change the way we love each other. Here's to us, forever and always.
         </p>
 
+        <button class="translate-button" onclick="toggleTranslation()">Translate to Spanish</button>
+
         <div class="carousel">
             <div class="carousel-images">
-                <img class="carousel-image" src="us.jpeg">
-                <img class="carousel-image" src="us2.jpeg">
-                <img class="carousel-image" src="imag4.jpeg">
+                <img class="carousel-image" src="us.jpeg" alt="Image 1">
+                <img class="carousel-image" src="us2.jpeg" alt="Image 2">
+                <img class="carousel-image" src="imag4.jpeg" alt="Image 3">
             </div>
             <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
         </div>
-        <div class="footer">mucho</div>
+        <div class="footer">mucho p.s. we need more pictures</div>
     </div>
 
     <script>
-         let currentIndex = 0;
+        let currentIndex = 0;
         const slides = document.querySelectorAll('.carousel-image');
         const totalSlides = slides.length / 3;  // Since we are showing 3 images per page
 
@@ -125,6 +137,23 @@
         setInterval(() => {
             moveSlide(1); // Move to the next slide automatically
         }, 3000); // Change image every 3 seconds
+
+        // Spanish version of the text
+        const spanishText = "Aquí estamos, mirando hacia el futuro con corazones llenos y una certeza inquebrantable. Al reflexionar sobre este momento, sonreiremos sabiendo que lo logramos, juntos. Recordaremos las conversaciones nocturnas, las risas y el amor que solo creció más fuerte con el tiempo. Cada desafío que enfrentamos nos acercó más, y hoy, nuestro vínculo es irrompible. Estaremos uno al lado del otro, aún más fuertes, aún más enamorados, tal como siempre supimos que lo estaríamos. El futuro es nuestro, y nada cambiará la forma en que nos amamos. Aquí estamos, para siempre y siempre.";
+
+        // Function to toggle between English and Spanish
+        function toggleTranslation() {
+            const noteTextElement = document.getElementById("note-text");
+
+            if (noteTextElement.innerHTML === spanishText) {
+                noteTextElement.innerHTML = 
+                    "Here we are, looking ahead with full hearts and unwavering certainty. As we reflect on this moment, we’ll smile knowing we made it — together. We’ll remember the late-night talks, the laughter, and the love that only grew stronger with time. Every challenge we faced only brought us closer, and today, our bond is unbreakable. We’ll stand side by side, even stronger, even more in love, just as we always knew we would. The future is ours, and nothing will change the way we love each other. Here's to us, forever and always.";
+                document.querySelector(".translate-button").innerText = "Click for Liz ;)";
+            } else {
+                noteTextElement.innerHTML = spanishText;
+                document.querySelector(".translate-button").innerText = "Click for Logan ;)";
+            }
+        }
     </script>
 </body>
 </html>
