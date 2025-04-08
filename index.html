@@ -113,13 +113,19 @@
 
     <script>
         let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-image');
+        const totalSlides = slides.length;
 
         function moveSlide(step) {
-            const slides = document.querySelectorAll('.carousel-image');
-            currentIndex = (currentIndex + step + slides.length) % slides.length;
+            currentIndex = (currentIndex + step + totalSlides) % totalSlides;
             const newTransformValue = -currentIndex * 100;
             document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue}%)`;
         }
+
+        // Auto cycle the carousel every 3 seconds (3000 milliseconds)
+        setInterval(() => {
+            moveSlide(1); // Move to the next slide automatically
+        }, 3000); // Change image every 3 seconds
     </script>
 </body>
 </html>
