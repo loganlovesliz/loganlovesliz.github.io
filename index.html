@@ -95,7 +95,47 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff8f3;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+            color: #5c4033;
+            font-size: 1.2em;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
         }
     </style>
 
@@ -109,6 +149,15 @@
         </p>
 
         <button class="translate-button" onclick="toggleTranslation()">click for liz ;)</button>
+        <button class="translate-button" onclick="openModal()">lo siento</button>
+
+        <!-- Modal HTML -->
+        <div id="sorryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>I'm sorry for the times I didn’t listen, the moments I missed, or anything I ever did that hurt you. I love you, endlessly.</p>
+            </div>
+        </div>
 
         <div class="carousel">
             <div class="carousel-images">
@@ -116,7 +165,6 @@
                 <img class="carousel-image" src="us2.jpeg" alt="Image 2">
                 <img class="carousel-image" src="imag4.jpeg" alt="Image 3">
             </div>
-            
         </div>
         <div class="footer">mucho p.s. we need more pictures</div>
     </div>
@@ -124,28 +172,25 @@
     <script>
         let currentIndex = 0;
         const slides = document.querySelectorAll('.carousel-image');
-        const totalSlides = slides.length / 3;  // Since we are showing 3 images per page
+        const totalSlides = slides.length / 3;
 
         function moveSlide(step) {
             currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-            const newTransformValue = -currentIndex * 100; // Move by 100% of the width (1 page)
+            const newTransformValue = -currentIndex * 100;
             document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue}%)`;
         }
 
-        // Auto cycle the carousel every 3 seconds (3000 milliseconds)
         setInterval(() => {
-            moveSlide(1); // Move to the next slide automatically
-        }, 3000); // Change image every 3 seconds
+            moveSlide(1);
+        }, 3000);
 
-        // Spanish version of the text
         const spanishText = "Aquí estamos, mirando hacia el futuro con corazones llenos y una certeza inquebrantable. Al reflexionar sobre este momento, sonreiremos sabiendo que lo logramos, juntos. Recordaremos las conversaciones nocturnas, las risas y el amor que solo creció más fuerte con el tiempo. Cada desafío que enfrentamos nos acercó más, y hoy, nuestro vínculo es irrompible. Estaremos uno al lado del otro, aún más fuertes, aún más enamorados, tal como siempre supimos que lo estaríamos. El futuro es nuestro, y nada cambiará la forma en que nos amamos. Aquí estamos, para siempre y siempre.";
 
-        // Function to toggle between English and Spanish
         function toggleTranslation() {
             const noteTextElement = document.getElementById("note-text");
 
             if (noteTextElement.innerHTML === spanishText) {
-                noteTextElement.innerHTML = 
+                noteTextElement.innerHTML =
                     "Here we are, looking ahead with full hearts and unwavering certainty. As we reflect on this moment, we’ll smile knowing we made it — together. We’ll remember the late-night talks, the laughter, and the love that only grew stronger with time. Every challenge we faced only brought us closer, and today, our bond is unbreakable. We’ll stand side by side, even stronger, even more in love, just as we always knew we would. The future is ours, and nothing will change the way we love each other. Here's to us, forever and always.";
                 document.querySelector(".translate-button").innerText = "click for liz ;)";
             } else {
@@ -153,6 +198,21 @@
                 document.querySelector(".translate-button").innerText = "click for logan ;)";
             }
         }
+
+        function openModal() {
+            document.getElementById("sorryModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("sorryModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("sorryModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
